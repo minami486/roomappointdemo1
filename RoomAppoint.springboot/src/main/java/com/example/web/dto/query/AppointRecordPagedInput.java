@@ -74,6 +74,7 @@ public class AppointRecordPagedInput extends PagedInput {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private List<LocalDateTime> EndTimeRange;
 
+<<<<<<< HEAD
     /**
      * 评分最小值
      */
@@ -86,4 +87,6 @@ public class AppointRecordPagedInput extends PagedInput {
     @JsonProperty("CommentScoreMax")
     private Double CommentScoreMax;
 
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 }

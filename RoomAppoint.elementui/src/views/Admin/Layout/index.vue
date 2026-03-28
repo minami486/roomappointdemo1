@@ -70,11 +70,14 @@
                             <span>预约记录</span>
                         </el-menu-item>
 
+<<<<<<< HEAD
                         <el-menu-item index="/Admin/CommentList">
                             <i class="el-icon-pinglun"></i>
                             <span>评论管理</span>
                         </el-menu-item>
 
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                         <el-menu-item index="/Admin/BannerList">
                             <i class="el-icon-wenanfengmian"></i>
                             <span>封面</span>
@@ -123,7 +126,11 @@
 
 <script>
    createAiChat({
+<<<<<<< HEAD
        appId:"2001250688578945025",
+=======
+       appId:"2036346373091123202",
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
        // 支持top-left左上, top-right右上, bottom-left左下, bottom-right右下
        iconPosition:"bottom-right"
     });

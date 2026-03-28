@@ -5,7 +5,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
+<<<<<<< HEAD
         <version>2.7.18</version>
+=======
+        <version>3.3.1</version>
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
@@ -27,7 +31,11 @@
         <url/>
     </scm>
     <properties>
+<<<<<<< HEAD
         <java.version>8</java.version>
+=======
+        <java.version>17</java.version>
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
     </properties>
     <dependencies>
         <dependency>
@@ -70,8 +78,13 @@
         <!--springboot整合mybatis依赖-->
         <dependency>
             <groupId>com.baomidou</groupId>
+<<<<<<< HEAD
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.3.1</version>
+=======
+            <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+            <version>3.5.7</version>
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
         </dependency>
         <!-- jwt依赖 -->
         <dependency>

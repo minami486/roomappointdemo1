@@ -50,9 +50,14 @@
         </el-card>
 
 
+<<<<<<< HEAD
         <!-- 评论对话框 -->
         <el-dialog title="评论" :visible.sync="editorShow" width="50%" :lock-scroll="true">
             <el-form ref="editorForm" :model="formData" :rules="editModalFormRules"
+=======
+        <el-dialog title="评论评分" :visible.sync="editorShow" width="50%" :lock-scroll="true" height="800px">
+            <el-form v-if="editorShow == true" ref="editModalForm" :rules="editModalFormRules" :model="formData"
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                 label-width="140px" size="mini">
                 <el-row :gutter="10" class="EditFromBody">
 
@@ -80,6 +85,7 @@
             </el-form>
 
         </el-dialog>
+<<<<<<< HEAD
         
         <!-- 评论详情对话框 -->
         <el-dialog title="评论详情" :visible.sync="detailShow" width="50%" :lock-scroll="true">
@@ -153,6 +159,8 @@
                 <el-button @click="detailShow = false">关 闭</el-button>
             </div>
         </el-dialog>
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
 
         <PaginationTable ref="PaginationTableId" url="/AppointRecord/List" :column="dataColum" :where="where">
@@ -162,8 +170,11 @@
             <template v-slot:Operate="scope">
                 <el-button type="primary" size="mini" v-if="scope.row.AppointStatus == 6"
                     @click="ShowEditModal(scope.row.Id)">评 论</el-button>
+<<<<<<< HEAD
                 <el-button type="info" size="mini" v-if="scope.row.AppointStatus == 3 && scope.row.Comment"
                     @click="ShowDetailModal(scope.row.Id)">查看评论详情</el-button>
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                 <el-button type="primary" size="mini" v-if="scope.row.AppointStatus == 1"
                     @click="ArrivalClock(scope.row.Id)">到场打卡</el-button>
                 <el-button type="warning" size="mini" v-if="scope.row.AppointStatus == 2"
@@ -350,10 +361,13 @@ export default {
 
             },//保存或者修改定义的数据对象
             editorShow: false,
+<<<<<<< HEAD
             detailShow: false,
             // 追评相关
             followUpComment: '',
             followUpCommentVisible: false,
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
         };
     },
@@ -401,7 +415,11 @@ export default {
          */
         async CreateOrEditForm() {
 
+<<<<<<< HEAD
             this.$refs.editorForm.validate(async valid => {
+=======
+            this.$refs.editModalForm.validate(async valid => {
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                 if (valid) {
                     var { Success } = await this.$Post(`/AppointRecord/Comment`, this.formData);
 
@@ -413,6 +431,7 @@ export default {
             })
         },
         /**
+<<<<<<< HEAD
          * 查看评论详情
          */
         async ShowDetailModal(Id) {
@@ -458,6 +477,8 @@ export default {
             }
         },
         /**
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
          * 单个删除的时候会触发
          */
         async ShowDeleteModal(Id) {
@@ -496,6 +517,7 @@ export default {
 
     },
 };
+<<<<<<< HEAD
 </script>
 
 <style scoped>
@@ -582,3 +604,6 @@ export default {
     margin-left: 10px;
 }
 </style>
+=======
+</script>
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02

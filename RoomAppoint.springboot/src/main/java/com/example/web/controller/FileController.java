@@ -2,7 +2,11 @@ package com.example.web.controller;
 
 import com.example.web.tools.dto.FileResultDto;
 import com.example.web.tools.exception.CustomException;
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
+=======
+import jakarta.servlet.http.HttpServletRequest;
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

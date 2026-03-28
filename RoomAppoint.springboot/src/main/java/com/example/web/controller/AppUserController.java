@@ -9,8 +9,13 @@ import com.example.web.tools.dto.IdInput;
 import com.example.web.tools.dto.IdsInput;
 import com.example.web.tools.dto.PagedResult;
 import com.example.web.tools.dto.ResponseData;
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+=======
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

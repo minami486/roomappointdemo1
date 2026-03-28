@@ -6,7 +6,11 @@ import com.example.web.entity.*;
 import com.example.web.tools.dto.IdInput;
 import com.example.web.tools.dto.IdsInput;
 import com.example.web.tools.dto.PagedResult;
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletResponse;
+=======
+import jakarta.servlet.http.HttpServletResponse;
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.io.IOException;

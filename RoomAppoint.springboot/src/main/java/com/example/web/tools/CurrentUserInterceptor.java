@@ -11,8 +11,13 @@ import com.example.web.tools.dto.CurrentUserDto;
 import com.example.web.tools.dto.ResponseData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+=======
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import java.util.HashMap;

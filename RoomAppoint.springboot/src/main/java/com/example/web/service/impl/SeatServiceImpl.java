@@ -284,13 +284,18 @@ public class SeatServiceImpl extends ServiceImpl<SeatMapper, Seat> implements Se
             //6点到12是中午  14点到18点是下午    19点到23点是夜晚
             for (int j = 1; j <= maxCol; j++) {
                 int col = j;
+<<<<<<< HEAD
                 Seat seat = seats.stream().filter(x -> x.getSRow() == row && x.getSCol() == col).findFirst().orElse(new Seat());
+=======
+                var seat = seats.stream().filter(x -> x.getSRow() == row && x.getSCol() == col).findFirst().orElse(new Seat());
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
                 //处理上午
                 SeatDto amSeatDto = seat.MapToDto();
                 //默认就是未占用
                 amSeatDto.setIsOccupy(false);
                 if (Extension.isNullOrZero(amSeatDto.getId()) == false) {
+<<<<<<< HEAD
                     // 如果座位处于维修状态，直接标记为已占用
                     if (amSeatDto.getIsMaintain() != null && amSeatDto.getIsMaintain()) {
                         amSeatDto.setIsOccupy(true);
@@ -303,6 +308,15 @@ public class SeatServiceImpl extends ServiceImpl<SeatMapper, Seat> implements Se
                                 .count();
                         amSeatDto.setIsOccupy(count > 0);
                     }
+=======
+                    long count = appointRecords.stream()
+                            .filter(x -> x.getSeatId().equals(amSeatDto.getId()) && x.getAppointDateType() == AppointDateTypeEnum.上午.index())
+                            .filter(x -> (x.getAppointStatus() == AppointStatusEnum.使用中.index()
+                                    || x.getAppointStatus() == AppointStatusEnum.待使用.index()
+                                   ))
+                            .count();
+                    amSeatDto.setIsOccupy(count > 0);
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                 }
                 amSeatRowDtoList.add(amSeatDto);
 
@@ -311,6 +325,7 @@ public class SeatServiceImpl extends ServiceImpl<SeatMapper, Seat> implements Se
                 //默认就是未占用
                 pmSeatDto.setIsOccupy(false);
                 if (Extension.isNullOrZero(pmSeatDto.getId()) == false) {
+<<<<<<< HEAD
                     // 如果座位处于维修状态，直接标记为已占用
                     if (pmSeatDto.getIsMaintain() != null && pmSeatDto.getIsMaintain()) {
                         pmSeatDto.setIsOccupy(true);
@@ -323,6 +338,15 @@ public class SeatServiceImpl extends ServiceImpl<SeatMapper, Seat> implements Se
                                 .count();
                         pmSeatDto.setIsOccupy(count > 0);
                     }
+=======
+                    long count = appointRecords.stream()
+                            .filter(x -> x.getSeatId().equals(amSeatDto.getId()) && x.getAppointDateType() == AppointDateTypeEnum.下午.index())
+                            .filter(x -> (x.getAppointStatus() == AppointStatusEnum.使用中.index()
+                                    || x.getAppointStatus() == AppointStatusEnum.待使用.index()
+                                   ))
+                            .count();
+                    pmSeatDto.setIsOccupy(count > 0);
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                 }
                 pmSeatRowDtoList.add(pmSeatDto);
 
@@ -332,6 +356,7 @@ public class SeatServiceImpl extends ServiceImpl<SeatMapper, Seat> implements Se
                 //默认就是未占用
                 nmSeatDto.setIsOccupy(false);
                 if (Extension.isNullOrZero(nmSeatDto.getId()) == false) {
+<<<<<<< HEAD
                     // 如果座位处于维修状态，直接标记为已占用
                     if (nmSeatDto.getIsMaintain() != null && nmSeatDto.getIsMaintain()) {
                         nmSeatDto.setIsOccupy(true);
@@ -344,6 +369,15 @@ public class SeatServiceImpl extends ServiceImpl<SeatMapper, Seat> implements Se
                                 .count();
                         nmSeatDto.setIsOccupy(count > 0);
                     }
+=======
+                    long count = appointRecords.stream()
+                            .filter(x -> x.getSeatId().equals(amSeatDto.getId()) && x.getAppointDateType() == AppointDateTypeEnum.夜晚.index())
+                            .filter(x -> (x.getAppointStatus() == AppointStatusEnum.使用中.index()
+                                    || x.getAppointStatus() == AppointStatusEnum.待使用.index()
+                                 ))
+                            .count();
+                    nmSeatDto.setIsOccupy(count > 0);
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                 }
                 nmSeatRowDtoList.add(nmSeatDto);
             }

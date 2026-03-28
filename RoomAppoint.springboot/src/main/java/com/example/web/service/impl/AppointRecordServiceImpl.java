@@ -23,7 +23,10 @@ import com.example.web.dto.query.AppointRoomAppointStatusDataQueryInput;
 import com.example.web.dto.query.AppointRoomUseRateQueryInput;
 import com.example.web.entity.AppUser;
 import com.example.web.entity.AppointRecord;
+<<<<<<< HEAD
 import com.example.web.entity.CommentReply;
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 import com.example.web.entity.Integral;
 import com.example.web.entity.Room;
 import com.example.web.entity.Seat;
@@ -35,7 +38,10 @@ import com.example.web.mapper.IntegralMapper;
 import com.example.web.mapper.RoomMapper;
 import com.example.web.mapper.SeatMapper;
 import com.example.web.service.AppointRecordService;
+<<<<<<< HEAD
 import com.example.web.service.CommentReplyService;
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 import com.example.web.tools.Extension;
 import com.example.web.tools.dto.IdInput;
 import com.example.web.tools.dto.IdsInput;
@@ -70,12 +76,15 @@ public class AppointRecordServiceImpl extends ServiceImpl<AppointRecordMapper, A
      */
     @Autowired
     private IntegralMapper _IntegralMpper;
+<<<<<<< HEAD
     
     /**
      * 评论回复服务
      */
     @Autowired
     private CommentReplyService _CommentReplyService;
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
     /**
      * 构建表查询sql
@@ -114,12 +123,15 @@ public class AppointRecordServiceImpl extends ServiceImpl<AppointRecordMapper, A
         if (input.getAppointStatus() != null) {
             queryWrapper = queryWrapper.eq(AppointRecord::getAppointStatus, input.getAppointStatus());
         }
+<<<<<<< HEAD
         if (input.getCommentScoreMin() != null) {
             queryWrapper = queryWrapper.ge(AppointRecord::getCommentScore, input.getCommentScoreMin());
         }
         if (input.getCommentScoreMax() != null) {
             queryWrapper = queryWrapper.le(AppointRecord::getCommentScore, input.getCommentScoreMax());
         }
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
         if (input.getBeginTimeRange() != null && !input.getBeginTimeRange().isEmpty()) {
             queryWrapper = queryWrapper.lt(AppointRecord::getBeginTime, input.getBeginTimeRange().get(1));
             queryWrapper = queryWrapper.gt(AppointRecord::getBeginTime, input.getBeginTimeRange().get(0));
@@ -160,10 +172,13 @@ public class AppointRecordServiceImpl extends ServiceImpl<AppointRecordMapper, A
             Seat SeatEntity = _SeatMapper.selectList(Wrappers.<Seat>lambdaQuery().eq(Seat::getId, item.getSeatId()))
                     .stream().findFirst().orElse(new Seat());
             item.setSeatDto(SeatEntity.MapToDto());
+<<<<<<< HEAD
             
             // 查询评论回复列表
             List<CommentReply> replyList = _CommentReplyService.getByAppointRecordId(item.getId());
             item.setCommentReplyList(replyList);
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
         }
         return items;
     }
@@ -472,7 +487,11 @@ public class AppointRecordServiceImpl extends ServiceImpl<AppointRecordMapper, A
             }
         }
         if (appointRecords.size() > 0) {
+<<<<<<< HEAD
             updateBatchById(appointRecords);
+=======
+            _AppointRecordMpper.updateById(appointRecords);
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
         }
     }
 
@@ -506,7 +525,11 @@ public class AppointRecordServiceImpl extends ServiceImpl<AppointRecordMapper, A
             }
         }
         if (appointRecords.size() > 0) {
+<<<<<<< HEAD
             updateBatchById(appointRecords);
+=======
+            _AppointRecordMpper.updateById(appointRecords);
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
         }
     }
 
@@ -540,30 +563,51 @@ public class AppointRecordServiceImpl extends ServiceImpl<AppointRecordMapper, A
                             AppointStatusEnum.预约完成.index()));
 
             // 得到上午预约的有效座位次数
+<<<<<<< HEAD
             long amEffectSeatCount = appointRecordList.stream()
                     .filter(x -> x.getAppointDateType() == AppointDateTypeEnum.上午.index()).map(x -> x.getSeatId())
                     .distinct().count();
             double amUseRate = (double) amEffectSeatCount / seatCount;
+=======
+            var amEffectSeatCount = appointRecordList.stream()
+                    .filter(x -> x.getAppointDateType() == AppointDateTypeEnum.上午.index()).map(x -> x.getSeatId())
+                    .distinct().count();
+            var amUseRate = (double) amEffectSeatCount / seatCount;
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
             // 保留2未小数
             amUseRate = Math.round(amUseRate * 100.0);
 
             objectObjectHashMap.put("AmUseRate", amUseRate);
 
             // 得到下午预约的有效座位次数
+<<<<<<< HEAD
             long pmEffectSeatCount = appointRecordList.stream()
                     .filter(x -> x.getAppointDateType() == AppointDateTypeEnum.下午.index()).map(x -> x.getSeatId())
                     .distinct().count();
             double pmUseRate = (double) pmEffectSeatCount / seatCount;
+=======
+            var pmEffectSeatCount = appointRecordList.stream()
+                    .filter(x -> x.getAppointDateType() == AppointDateTypeEnum.下午.index()).map(x -> x.getSeatId())
+                    .distinct().count();
+            var pmUseRate = (double) pmEffectSeatCount / seatCount;
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
             // 保留2未小数
             pmUseRate = Math.round(pmUseRate * 100.0);
 
             objectObjectHashMap.put("PmUseRate", pmUseRate);
 
             // 得到夜晚预约的有效座位次数
+<<<<<<< HEAD
             long nmEffectSeatCount = appointRecordList.stream()
                     .filter(x -> x.getAppointDateType() == AppointDateTypeEnum.夜晚.index()).map(x -> x.getSeatId())
                     .distinct().count();
             double nmUseRate = (double) nmEffectSeatCount / seatCount;
+=======
+            var nmEffectSeatCount = appointRecordList.stream()
+                    .filter(x -> x.getAppointDateType() == AppointDateTypeEnum.夜晚.index()).map(x -> x.getSeatId())
+                    .distinct().count();
+            var nmUseRate = (double) nmEffectSeatCount / seatCount;
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
             // 保留2未小数
             nmUseRate = Math.round(nmUseRate * 100.0);
 

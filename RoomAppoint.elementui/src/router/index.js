@@ -182,6 +182,7 @@ export const adminRouters = [{
             component: () => import("@/views/Admin/SeatList")
         },
         {
+<<<<<<< HEAD
             path: "/Admin/CommentList",
             meta: {
                 title: "评论管理",
@@ -190,6 +191,8 @@ export const adminRouters = [{
             component: () => import("@/views/Admin/CommentList")
         },
         {
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
             path: "/Admin/AppointRoomAppointStatusData",
             meta: {
                 title: "自习室预约统计",

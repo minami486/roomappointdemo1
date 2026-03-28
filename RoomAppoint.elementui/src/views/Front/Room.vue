@@ -26,6 +26,7 @@
                             <div class="seat-list">
                                 <div class="seat-row" v-for="(row, rowIndex) in SeatArrange.AmSeatDtoList" :key="rowIndex">
                                     <div class="seat-col" v-for="(col, colIndex) in row" :key="colIndex">
+<<<<<<< HEAD
                                         <div v-if="col.Id" 
                                              :class="{ 'seat-maintain': col.IsMaintain }">
                                             <!-- 正常座位可点击 -->
@@ -45,6 +46,12 @@
                                                 </div>
                                                 <div class="maintain-overlay"></div>
                                             </div>
+=======
+                                        <div v-if="col.Id" @click="ToAppoint(col, 1)">
+                                            <img v-if="col.IsOccupy == false" :src="require('@/assets/seat.png')">
+                                            <img v-else :src="require('@/assets/seatcked.png')">
+                                            <div class="tit"><span>{{ col.No }}</span></div>
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                                         </div>
                                     </div>
                                 </div>
@@ -56,6 +63,7 @@
                             <div class="seat-list">
                                 <div class="seat-row" v-for="(row, rowIndex) in SeatArrange.PmSeatDtoList" :key="rowIndex">
                                     <div class="seat-col" v-for="(col, colIndex) in row" :key="colIndex">
+<<<<<<< HEAD
                                         <div v-if="col.Id" 
                                              :class="{ 'seat-maintain': col.IsMaintain }">
                                             <!-- 正常座位可点击 -->
@@ -75,6 +83,12 @@
                                                 </div>
                                                 <div class="maintain-overlay"></div>
                                             </div>
+=======
+                                        <div v-if="col.Id" @click="ToAppoint(col, 2)">
+                                            <img v-if="col.IsOccupy == false" :src="require('@/assets/seat.png')">
+                                            <img v-else :src="require('@/assets/seatcked.png')">
+                                            <div class="tit"><span>{{ col.No }}</span></div>
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                                         </div>
                                     </div>
                                 </div>
@@ -86,6 +100,7 @@
                             <div class="seat-list">
                                 <div class="seat-row" v-for="(row, rowIndex) in SeatArrange.NmSeatDtoList" :key="rowIndex">
                                     <div class="seat-col" v-for="(col, colIndex) in row" :key="colIndex">
+<<<<<<< HEAD
                                         <div v-if="col.Id" 
                                              :class="{ 'seat-maintain': col.IsMaintain }">
                                             <!-- 正常座位可点击 -->
@@ -105,6 +120,12 @@
                                                 </div>
                                                 <div class="maintain-overlay"></div>
                                             </div>
+=======
+                                        <div v-if="col.Id" @click="ToAppoint(col, 3)">
+                                            <img v-if="col.IsOccupy == false" :src="require('@/assets/seat.png')">
+                                            <img v-else :src="require('@/assets/seatcked.png')">
+                                            <div class="tit"><span>{{ col.No }}</span></div>
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                                         </div>
                                     </div>
                                 </div>
@@ -212,9 +233,12 @@ export default {
         //去预约
         async ToAppoint(col, type) {
             if (col.IsOccupy) {
+<<<<<<< HEAD
                 if (col.IsMaintain) {
                     this.$message.warning("该座位正在维修中，无法预约");
                 }
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                 return;
             }
             if (!this.Token) {
@@ -273,7 +297,10 @@ export default {
     margin-left: 20px;
     width: 60px;
     height: 70px;
+<<<<<<< HEAD
     position: relative;
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 }
 
 .seat-list .seat-row .seat-col img {
@@ -318,6 +345,7 @@ export default {
     color: red;
     font-size: 12px;
 }
+<<<<<<< HEAD
 
 /* 维修座位样式 */
 .seat-maintain {
@@ -370,4 +398,6 @@ export default {
     color: #ff4d4f;
     font-size: 12px;
 }
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 </style>

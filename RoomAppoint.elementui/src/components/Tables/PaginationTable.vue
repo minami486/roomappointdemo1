@@ -70,7 +70,11 @@
                             :prop="item.key" :label="item.title" :width="item.width || 'auto'" align="center">
                             <template slot-scope="{ row }">
 
+<<<<<<< HEAD
                                 <el-image v-for="(image, idx) in row[`${item.key}`]" style="width: 50px; height: 40px"
+=======
+                                <el-image v-for="(image, imgIndex) in row[`${item.key}`]" :key="imgIndex" style="width: 50px; height: 40px"
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                                     :src="image" :preview-src-list="row[`${item.key}`]" fit="scale-down">
                                     <div slot="error" class="image-slot">
                                         <i class="el-icon-picture-outline"></i>
@@ -246,6 +250,7 @@ export default {
         async fetchDataList(searchWhere = {}) {
             this.listLoading = true;
 
+<<<<<<< HEAD
             let { Data: { Items, TotalCount } } = await this.$Post(this.$props.url, {
                 Limit: this.pagination.limit,
                 Page: this.pagination.page,
@@ -281,6 +286,62 @@ export default {
             this.pagination.total = parseInt(TotalCount);
             this.listLoading = false;
             this.$emit("fetchDataSuccess", { items: Items, totalCount: TotalCount })
+=======
+            try {
+                let response = await this.$Post(this.$props.url, {
+                    Limit: this.pagination.limit,
+                    Page: this.pagination.page,
+                    ...this.where_,
+                    ...searchWhere
+                });
+                
+                // 检查请求是否成功
+                if (response.Success) {
+                    let { Data: { Items = [], TotalCount = 0 } } = response;
+                    let dataList = [];
+                    Items.forEach((item, index) => {
+                        let dataItem = {};
+                        this.$props.column.forEach((element) => {
+
+                            if (element.template) {
+                                dataItem[`${element.key}`] = element.template(item, index);
+                            }
+                            else {
+                                dataItem[`${element.key}`] = this.GetObjectValue(item, element.key);
+                            }
+
+                            if (element.type == store.getters.ColumnType.IMAGES) {
+                                if (element.template) {
+                                    dataItem[`${element.key}`] = ReplaceImageHttp(dataItem[`${element.key}`]?.split(","));
+                                }
+                                else {
+                                    dataItem[`${element.key}`] = ReplaceImageHttp(this.GetObjectValue(item, element.key)?.split(","));
+                                }
+                            }
+                        });
+                        dataItem.OrginValue = item;
+                        dataList.push(dataItem);
+                    });
+                    this.datalist = dataList;
+                    this.selectRow = [];
+                    this.pagination.total = parseInt(TotalCount);
+                    this.$emit("fetchDataSuccess", { items: Items, totalCount: TotalCount })
+                } else {
+                    // 请求失败，显示错误信息
+                    this.$message.error(response.Msg || '请求失败');
+                    this.datalist = [];
+                    this.pagination.total = 0;
+                }
+            } catch (error) {
+                // 捕获其他错误
+                this.$message.error('数据加载失败：' + error.message);
+                this.datalist = [];
+                this.pagination.total = 0;
+            } finally {
+                // 无论成功还是失败，都关闭加载状态
+                this.listLoading = false;
+            }
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
         },
         //点击行
         rowClick(row) {
@@ -304,7 +365,11 @@ export default {
             if (!name) {
                 return undefined;
             }
+<<<<<<< HEAD
             if (!obj) { return undefined }
+=======
+            if (!obj) { return undefined };
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
             if (name.indexOf(".") != -1) {
                 var array = name.split(".");
 

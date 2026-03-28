@@ -1,6 +1,9 @@
 package com.example.web.dto;
 
+<<<<<<< HEAD
 import com.example.web.entity.CommentReply;
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 import com.example.web.enums.*;
 import com.example.web.tools.dto.BaseDto;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -31,11 +34,14 @@ import java.util.List;
 @Data
 public class AppointRecordDto extends BaseDto {
 
+<<<<<<< HEAD
     /**
      * 评论回复列表
      */
     @JsonProperty("CommentReplyList")
     private List<CommentReply> CommentReplyList;
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
     /**
      * 自习室

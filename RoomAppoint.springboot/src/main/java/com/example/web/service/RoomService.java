@@ -8,7 +8,11 @@ import com.example.web.enums.*;
 import java.lang.reflect.InvocationTargetException;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.io.IOException;
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletResponse;
+=======
+import jakarta.servlet.http.HttpServletResponse;
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 /**
  * 自习室功能的Service接口的定义清单
  */

@@ -61,4 +61,9 @@ public enum AppointStatusEnum {
         }
         return MY_MAP.get(v);
     }
+<<<<<<< HEAD
 }
+=======
+
+    }
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02

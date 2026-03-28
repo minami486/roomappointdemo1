@@ -8,7 +8,11 @@ import com.example.web.mapper.*;
 import com.example.web.service.*;
 import com.example.web.tools.dto.*;
 import com.example.web.tools.exception.CustomException;
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
+=======
+import jakarta.servlet.http.HttpServletRequest;
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.CellType;
@@ -27,7 +31,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletResponse;
+=======
+import jakarta.servlet.http.HttpServletResponse;
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
 /**
  * 预约记录控制器

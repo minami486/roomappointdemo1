@@ -29,7 +29,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+<<<<<<< HEAD
 import java.util.stream.Collectors;
+=======
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
 /**
  * 积分功能实现类
@@ -46,7 +49,11 @@ public class IntegralServiceImpl extends ServiceImpl<IntegralMapper, Integral> i
      * 操作数据库的Integral表mapper对象
      */
     @Autowired
+<<<<<<< HEAD
     private IntegralMapper _IntegralMapper;
+=======
+    private IntegralMapper _IntegralMpper;
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
 
     /**
@@ -106,9 +113,15 @@ public class IntegralServiceImpl extends ServiceImpl<IntegralMapper, Integral> i
         //构建一个分页查询的model
         Page<Integral> page = new Page<>(input.getPage(), input.getLimit());
         //从数据库进行分页查询获取积分数据
+<<<<<<< HEAD
         IPage<Integral> pageRecords = _IntegralMapper.selectPage(page, queryWrapper);
         //获取所有满足条件的数据行数
         Long totalCount = _IntegralMapper.selectCount(queryWrapper);
+=======
+        IPage<Integral> pageRecords = _IntegralMpper.selectPage(page, queryWrapper);
+        //获取所有满足条件的数据行数
+        Long totalCount = _IntegralMpper.selectCount(queryWrapper);
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
         //把Integral实体转换成Integral传输模型
         List<IntegralDto> items = Extension.copyBeanList(pageRecords.getRecords(), IntegralDto.class);
         //计算表的数据
@@ -152,8 +165,13 @@ public class IntegralServiceImpl extends ServiceImpl<IntegralMapper, Integral> i
      */
     @Override
     public void Delete(IdInput input) {
+<<<<<<< HEAD
         Integral entity = _IntegralMapper.selectById(input.getId());
         _IntegralMapper.deleteById(entity);
+=======
+        Integral entity = _IntegralMpper.selectById(input.getId());
+        _IntegralMpper.deleteById(entity);
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
     }
 
     /**
@@ -177,7 +195,11 @@ public class IntegralServiceImpl extends ServiceImpl<IntegralMapper, Integral> i
         CurrentUserDto currentUserDto = BaseContext.getCurrentUserDto();
         Integer userId = currentUserDto.getUserId();
         //得到总积分
+<<<<<<< HEAD
         double totalIntegral = _IntegralMapper.selectList(Wrappers.<Integral>lambdaQuery().eq(Integral::getUserId, userId)).stream().mapToDouble(x -> x.getIntegralValue()).sum();
+=======
+        double totalIntegral = _IntegralMpper.selectList(Wrappers.<Integral>lambdaQuery().eq(Integral::getUserId, userId)).stream().mapToDouble(x -> x.getIntegralValue()).sum();
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
         myIntegralDataDto.setTotalIntegral(totalIntegral);
         return myIntegralDataDto;
@@ -197,7 +219,11 @@ public class IntegralServiceImpl extends ServiceImpl<IntegralMapper, Integral> i
             throw new CustomException("您没有逾期次数，无法清空");
         }
         //得到总积分
+<<<<<<< HEAD
         double totalIntegral = _IntegralMapper.selectList(Wrappers.<Integral>lambdaQuery().eq(Integral::getUserId, userId)).stream().mapToDouble(x -> x.getIntegralValue()).sum();
+=======
+        double totalIntegral = _IntegralMpper.selectList(Wrappers.<Integral>lambdaQuery().eq(Integral::getUserId, userId)).stream().mapToDouble(x -> x.getIntegralValue()).sum();
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
         //清除需要的积分数
         int needIntegral = appUser.getOverdueTimes() * 2;
@@ -230,7 +256,11 @@ public class IntegralServiceImpl extends ServiceImpl<IntegralMapper, Integral> i
 
         LocalDateTime now = LocalDate.now().atTime(0, 0, 0);
 
+<<<<<<< HEAD
         Long selectedCount = _IntegralMapper.selectCount(Wrappers.<Integral>lambdaQuery()
+=======
+        Long selectedCount = _IntegralMpper.selectCount(Wrappers.<Integral>lambdaQuery()
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
                 .eq(Integral::getUserId, userId)
                 .eq(Integral::getSource, "每天登录赠送积分")
                 .ge(Integral::getCreationTime, now));
@@ -258,7 +288,11 @@ public class IntegralServiceImpl extends ServiceImpl<IntegralMapper, Integral> i
         LocalDateTime now = LocalDate.now().atTime(0, 0, 0);
         //循环30次
 
+<<<<<<< HEAD
         List<Integral> integrals = _IntegralMapper.selectList(null);
+=======
+        List<Integral> integrals = _IntegralMpper.selectList(null);
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
         for (int i = 0; i < 30; i++) {
             HashMap<String, Object> stringObjectHashMap = new HashMap<>();
@@ -271,7 +305,11 @@ public class IntegralServiceImpl extends ServiceImpl<IntegralMapper, Integral> i
             stringObjectHashMap.put("Date", format);
 
             //先按照时间进行筛选
+<<<<<<< HEAD
             List<Integral> filterDateList = integrals.stream().filter(x -> x.getCreationTime().isAfter(beginTime) && x.getCreationTime().isBefore(endTime)).collect(Collectors.toList());
+=======
+            List<Integral> filterDateList = integrals.stream().filter(x -> x.getCreationTime().isAfter(beginTime) && x.getCreationTime().isBefore(endTime)).toList();
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
 
             //得到积分>0的数据综合
             double gainIntegral = filterDateList.stream().filter(x -> x.getIntegralValue() > 0).mapToDouble(x -> x.getIntegralValue()).sum();
@@ -297,11 +335,19 @@ public class IntegralServiceImpl extends ServiceImpl<IntegralMapper, Integral> i
     public void MockIntegralValue() {
         //得到今天的日期
         LocalDateTime now = LocalDate.now().atTime(0, 0, 0);
+<<<<<<< HEAD
         List<Integral> integrals = _IntegralMapper.selectList(null);
 
         List<AppUser> appUsers = _AppUserMapper.selectList(null);
 
         List<Integral> list = new ArrayList<Integral>();
+=======
+        List<Integral> integrals = _IntegralMpper.selectList(null);
+
+        List<AppUser> appUsers = _AppUserMapper.selectList(null);
+
+        var list = new ArrayList<Integral>();
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
         for (int i = 0; i < 30; i++) {
             LocalDateTime beginTime = now.minusDays(i);
             for (AppUser appUser : appUsers) {
@@ -316,7 +362,11 @@ public class IntegralServiceImpl extends ServiceImpl<IntegralMapper, Integral> i
             }
 
         }
+<<<<<<< HEAD
         saveBatch(list);
+=======
+        _IntegralMpper.insert(list);
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
     }
 
 

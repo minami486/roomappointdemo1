@@ -34,7 +34,11 @@ mybatis-plus: #操作数据库的ORM框架 mybatis
 
 zhipu:
   api:
+<<<<<<< HEAD
     key: ${ZHIPU_API_KEY:aa2fb383d4974c64b18a05e2b6149420.W2a1IljECfWRru20}
+=======
+    key: ${ZHIPU_API_KEY:cf7be19af6aa4669bb6b371747e768fe.Np3Cx6IODt8QdaiL}
+>>>>>>> 33acc898c80b8b3f2f47fe0ba5ff63293201fc02
     base-url: https://open.bigmodel.cn/api/paas/v4/chat/completions
     model: glm-4-flashx-250414  # 或 glm-4, glm-4-air, glm-4-plus
     max-tokens: 2000
