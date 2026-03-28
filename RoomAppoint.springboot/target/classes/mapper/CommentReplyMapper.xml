@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.web.mapper.CommentReplyMapper">
+    <!-- 根据预约记录ID查询回复列表 -->
+    <select id="selectByAppointRecordId" resultType="com.example.web.entity.CommentReply">
+        SELECT 
+            cr.*, 
+            u.Name AS ReplyUserName, 
+            u.RoleType AS ReplyUserRole
+        FROM CommentReply cr
+        LEFT JOIN appuser u ON cr.ReplyUserId = u.Id
+        WHERE cr.AppointRecordId = #{appointRecordId}
+        ORDER BY cr.ReplyTime ASC
+    </select>
+</mapper>
